@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${model.title}">Titel</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h1 th:text="${model.title}"></h1>
+<p th:text="${model.description}"></p>
+
+<div th:each="img : ${model.images}">
+    <img th:src="@{${img}}" alt="Billede" style="max-width:640px; margin-bottom:20px;">
+</div>
+
+<video th:if="${model.videoPath}" width="640" height="360" controls muted>
+    <source th:src="@{${model.videoPath}}" type="video/mp4"/>
+    Din browser understøtter ikke video-tagget.
+</video>
+
+
+</body>
+</html>
